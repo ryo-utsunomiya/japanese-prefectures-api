@@ -10,6 +10,16 @@
 <p>日本の47都道府県のリストを様々な形式で提供します。IDはJIS X 0401のコードに合わせています。</p>
 
 <div>
+    <h2 class="inline-block">テキスト</h2>
+    <button id="btn-text" type="button" onclick="toggle('text')">表示</button>
+<textarea name="text" id="text" cols="50" rows="50" readonly class="hidden">
+{% for id, name in prefectures %}
+{{ name }}
+{% endfor %}
+</textarea>
+</div>
+
+<div>
     <h2 class="inline-block">HTML(リスト)</h2>
     <button id="btn-html" type="button" onclick="toggle('html')">表示</button>
 <textarea name="html" id="html" cols="50" rows="50" readonly class="hidden">

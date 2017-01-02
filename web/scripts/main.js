@@ -1,4 +1,5 @@
 var buttonState = {
+    "text": false,
     "html": false,
     "html-select": false,
     "sql": false,
