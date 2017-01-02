@@ -2,39 +2,59 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>都道府県リスト</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
 <h1>都道府県リスト</h1>
-<p>日本の47都道府県のリストを様々な形式で提供します。</p>
-<p>IDはJIS X 0401のコードに合わせています。</p>
+<p>日本の47都道府県のリストを様々な形式で提供します。IDはJIS X 0401のコードに合わせています。</p>
 
-<h2>HTML</h2>
-
-<pre>
+<div>
+    <h2 class="inline-block">HTML(リスト)</h2>
+    <button id="btn-html" type="button" onclick="toggle('html')">表示</button>
+<textarea name="html" id="html" cols="50" rows="50" readonly class="hidden">
 &lt;ul&gt;
 {% for id, name in prefectures %}
 &lt;li&gt;{{ name }}&lt;/li&gt;
 {% endfor %}
 &lt;/ul&gt;
-</pre>
+</textarea>
+</div>
 
-<h2>SQL</h2>
-
-<pre>
+<div>
+    <h2 class="inline-block">HTML(select)</h2>
+    <button id="btn-html-select" type="button" onclick="toggle('html-select')">表示</button>
+<textarea name="html-select" id="html-select" cols="50" rows="50" readonly class="hidden">
+&lt;select&gt;
 {% for id, name in prefectures %}
-INSERT INTO prefecture (id, name) VALUES ({{ id }}, {{ name }});
+&lt;option value="{{ id }}"&gt;{{ name }}&lt;/option&gt;
 {% endfor %}
-</pre>
+&lt;/select&gt;
+</textarea>
+</div>
 
-<h2>JSON</h2>
+<div>
+    <h2 class="inline-block">SQL</h2>
+    <button id="btn-sql" type="button" onclick="toggle('sql')">表示</button>
+<textarea name="sql" id="sql" rows="50" cols="50" readonly class="hidden">
+{% for id, name in prefectures %}
+INSERT INTO prefecture (name) VALUES ('{{ name }}');
+{% endfor %}
+</textarea>
+</div>
 
-<pre>
-{{ prefectures|json_encode }}
-</pre>
+<div>
+    <h2 class="inline-block">JSON</h2>
+    <button id="btn-json" type="button" onclick="toggle('json')">表示</button>
+<textarea name="json" id="json" rows="50" cols="50" readonly class="hidden">
+{{ prefectures|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_UNICODE')) }}
+</textarea>
+</div>
 
+<p>
+    ソースコード：
+    <a href="https://github.com/ryo-utsunomiya/japanese-prefectures-api">https://github.com/ryo-utsunomiya/japanese-prefectures-api</a>
+</p>
+<script src="scripts/main.js"></script>
 </body>
 </html>
