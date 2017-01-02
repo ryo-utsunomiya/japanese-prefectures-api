@@ -1,0 +1,6 @@
+{
+  "name": "Japanese prefectures API",
+  "description": "An API which returns Japanese prefectures",
+  "repository": "https://github.com/ryo-utsunomiya/japanese-prefectures-api",
+  "addons": []
+}

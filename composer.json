@@ -1,0 +1,11 @@
+{
+  "require" : {
+    "silex/silex": "~2.0",
+    "monolog/monolog": "^1.22",
+    "twig/twig": "^1.30",
+    "symfony/twig-bridge": "^3.2"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
+}
