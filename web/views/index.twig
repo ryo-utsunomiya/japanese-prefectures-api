@@ -12,7 +12,7 @@
 <div>
     <h2 class="inline-block">テキスト</h2>
     <button id="btn-text" type="button" onclick="toggle('text')">表示</button>
-<textarea name="text" id="text" cols="50" rows="50" readonly class="hidden">
+<textarea name="text" id="text" cols="50" rows="50" readonly>
 {% for id, name in prefectures %}
 {{ name }}
 {% endfor %}
@@ -22,7 +22,7 @@
 <div>
     <h2 class="inline-block">HTML(リスト)</h2>
     <button id="btn-html" type="button" onclick="toggle('html')">表示</button>
-<textarea name="html" id="html" cols="50" rows="50" readonly class="hidden">
+<textarea name="html" id="html" cols="50" rows="50" readonly>
 &lt;ul&gt;
 {% for id, name in prefectures %}
 &lt;li&gt;{{ name }}&lt;/li&gt;
@@ -34,7 +34,7 @@
 <div>
     <h2 class="inline-block">HTML(select)</h2>
     <button id="btn-html-select" type="button" onclick="toggle('html-select')">表示</button>
-<textarea name="html-select" id="html-select" cols="50" rows="50" readonly class="hidden">
+<textarea name="html-select" id="html-select" cols="50" rows="50" readonly>
 &lt;select&gt;
 {% for id, name in prefectures %}
 &lt;option value="{{ id|number_format }}"&gt;{{ name }}&lt;/option&gt;
@@ -46,7 +46,7 @@
 <div>
     <h2 class="inline-block">SQL</h2>
     <button id="btn-sql" type="button" onclick="toggle('sql')">表示</button>
-<textarea name="sql" id="sql" rows="50" cols="60" readonly class="hidden">
+<textarea name="sql" id="sql" rows="50" cols="60" readonly>
 {% for id, name in prefectures %}
 INSERT INTO prefecture (id, name) VALUES ({{ id|number_format }}, '{{ name }}');
 {% endfor %}
@@ -56,7 +56,7 @@ INSERT INTO prefecture (id, name) VALUES ({{ id|number_format }}, '{{ name }}');
 <div>
     <h2 class="inline-block">SQL(id列なし)</h2>
     <button id="btn-sql-no-id" type="button" onclick="toggle('sql-no-id')">表示</button>
-<textarea name="sql-no-id" id="sql-no-id" rows="50" cols="50" readonly class="hidden">
+<textarea name="sql-no-id" id="sql-no-id" rows="50" cols="50" readonly>
 {% for id, name in prefectures %}
 INSERT INTO prefecture (name) VALUES ('{{ name }}');
 {% endfor %}
@@ -66,7 +66,7 @@ INSERT INTO prefecture (name) VALUES ('{{ name }}');
 <div>
     <h2 class="inline-block">JSON</h2>
     <button id="btn-json" type="button" onclick="toggle('json')">表示</button>
-<textarea name="json" id="json" rows="50" cols="50" readonly class="hidden">
+<textarea name="json" id="json" rows="50" cols="50" readonly>
 {{ prefectures|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_UNICODE')) }}
 </textarea>
 </div>
