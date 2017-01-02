@@ -5,10 +5,36 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>都道府県Web API</title>
+    <title>都道府県リスト</title>
 </head>
 <body>
-    <h1>都道府県Web API</h1>
-    <p>日本の47都道府県を様々な形式で返すWeb APIです。</p>
+<h1>都道府県リスト</h1>
+<p>日本の47都道府県のリストを様々な形式で提供します。</p>
+<p>IDはJIS X 0401のコードに合わせています。</p>
+
+<h2>HTML</h2>
+
+<pre>
+&lt;ul&gt;
+{% for id, name in prefectures %}
+&lt;li&gt;{{ name }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+</pre>
+
+<h2>SQL</h2>
+
+<pre>
+{% for id, name in prefectures %}
+INSERT INTO prefecture (id, name) VALUES ({{ id }}, {{ name }});
+{% endfor %}
+</pre>
+
+<h2>JSON</h2>
+
+<pre>
+{{ prefectures|json_encode }}
+</pre>
+
 </body>
 </html>
