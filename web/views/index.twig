@@ -37,7 +37,7 @@
 <textarea name="html-select" id="html-select" cols="50" rows="50" readonly class="hidden">
 &lt;select&gt;
 {% for id, name in prefectures %}
-&lt;option value="{{ id }}"&gt;{{ name }}&lt;/option&gt;
+&lt;option value="{{ id|number_format }}"&gt;{{ name }}&lt;/option&gt;
 {% endfor %}
 &lt;/select&gt;
 </textarea>
@@ -46,7 +46,17 @@
 <div>
     <h2 class="inline-block">SQL</h2>
     <button id="btn-sql" type="button" onclick="toggle('sql')">表示</button>
-<textarea name="sql" id="sql" rows="50" cols="50" readonly class="hidden">
+<textarea name="sql" id="sql" rows="50" cols="60" readonly class="hidden">
+{% for id, name in prefectures %}
+INSERT INTO prefecture (id, name) VALUES ({{ id|number_format }}, '{{ name }}');
+{% endfor %}
+</textarea>
+</div>
+
+<div>
+    <h2 class="inline-block">SQL(id列なし)</h2>
+    <button id="btn-sql-no-id" type="button" onclick="toggle('sql-no-id')">表示</button>
+<textarea name="sql-no-id" id="sql-no-id" rows="50" cols="50" readonly class="hidden">
 {% for id, name in prefectures %}
 INSERT INTO prefecture (name) VALUES ('{{ name }}');
 {% endfor %}

@@ -3,6 +3,7 @@ var buttonState = {
     "html": false,
     "html-select": false,
     "sql": false,
+    "sql-no-id": false,
     "json": false
 };
 
